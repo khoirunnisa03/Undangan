@@ -75,7 +75,7 @@ body {
 
         <div class="dear">Dear</div>
         
-         <div class="guest" id="guestName">Kepada Yth. Tamu Undangan</div>
+         <div class="guest" id="guestName">Tamu Undangan</div>
        <a href="https://wedding-nisa-oki.my.canva.site/"
           class="btn-open"
           target="_blank" onclick="openInvitation()">
@@ -91,7 +91,7 @@ body {
         const guest = params.get("to");
         
         if(guest) {
-            document.getElementById("guestName").innerText="Kepada Yth. " + decodeURIComponent(guest.replace(/\+/g, " "));
+            document.getElementById("guestName").innerText=decodeURIComponent(guest.replace(/\+/g, " "));
         }
         
         function openInvitation() {
