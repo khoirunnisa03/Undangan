@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:description" content="https://app.netlify.com/teams/khoirunnisa-nur-rahma/projects/icover.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content=https://app.netlify.com/teams/khoirunnisa-nur-rahma/projects>
+<title>Cover Undangan</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', serif;
+}
+
+.cover {
+    height: 100vh;
+    width: 100%;
+    background:
+        linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
+        url('icover.jpg') center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.content {
+    padding: 30px;
+}
+
+.dear {
+    font-size: 28px;
+    font-style: italic;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+
+.guest {
+    font-size: 22px;
+    margin-bottom: 35px;
+    letter-spacing: 1px;
+}
+
+.btn-open {
+    display: inline-block;
+    padding: 13px 35px;
+    border: 1px solid white;
+    border-radius: 30px;
+    color: white;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    transition: 0.3s;
+}
+
+.btn-open:hover {
+    background: white;
+    color: #333;
+}
+
+</style>
+</head>
+<body>
+<div class="cover">
+    <div class="content">
+
+        <div class="dear">Dear</div>
+        
+         <div class="guest" id="guestName">Kepada Yth. Tamu Undangan</div>
+       <a href="https://wedding-nisa-oki.my.canva.site/"
+          class="btn-open"
+          target="_blank" onclick="openInvitation()">
+             CLICK TO OPEN
+       </a>
+    </div>
+</div>
+<audio id="bgmusic" src="floating.mp3" preload="auto" loop></audio>
+
+<script>
+        // Ambil nama tamu dari URL ?to=
+        const params = new URLSearchParams(window.location.search);
+        const guest = params.get("to");
+        
+        if(guest) {
+            document.getElementById("guestName").innerText="Kepada Yth. " + decodeURIComponent(guest.replace(/\+/g, " "));
+        }
+        
+        function openInvitation() {
+            const music = document.getElementById("bgmusic");
+            music.play().catch(err=> console.log("Autoplay blocked"));
+        }
+</script>
+</body>
+</html>
